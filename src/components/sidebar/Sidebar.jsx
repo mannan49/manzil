@@ -5,8 +5,9 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { IoMdHome } from "react-icons/io";
 import { BsBuildingsFill } from "react-icons/bs";
 import { FaBusAlt } from "react-icons/fa";
-import { FaUser, FaRoute } from "react-icons/fa6";
+import { FaRoute, FaTicket } from "react-icons/fa6";
 import { MdPayment } from "react-icons/md";
+import { LiaUserEditSolid } from "react-icons/lia";
 
 const Sidebar = () => {
   return (
@@ -41,21 +42,21 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <FaUser />
-                <span>Users</span>
+              <NavLink to="/bookings" className="flex items-center gap-4">
+                <FaTicket />
+                <span>Bookings</span>
               </NavLink>
             </li>
             <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
+              <NavLink to="/payments" className="flex items-center gap-4">
                 <FaRoute />
-                <span>Routes</span>
+                <span>Payments</span>
               </NavLink>
             </li>
             <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <MdPayment />
-                <span>Payments</span>
+              <NavLink to="/profile" className="flex items-center gap-4">
+                <LiaUserEditSolid />
+                <span>Profile</span>
               </NavLink>
             </li>
           </ul>

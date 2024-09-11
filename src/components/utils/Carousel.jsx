@@ -43,7 +43,7 @@ const Carousel = ({ cards }) => {
 
       {/* Carousel Container */}
       <div className="overflow-hidden w-full px-2" ref={emblaRef}>
-        <div className="flex">
+        <div className="flex items-center">
           {cards.map((card, index) => (
             <div
               key={index}

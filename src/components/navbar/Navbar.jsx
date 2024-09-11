@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { BiSolidDashboard, BiLogOutCircle } from "react-icons/bi";
-import { FaUserShield, FaBusAlt } from "react-icons/fa";
+import { FaBusAlt } from "react-icons/fa";
 import { IoBus } from "react-icons/io5";
 import { IoMdHome } from "react-icons/io";
-import { BsBuildingsFill } from "react-icons/bs";
+import { BsBuildingsFill, BsMicrosoftTeams } from "react-icons/bs";
 import { FaUser, FaRoute } from "react-icons/fa6";
-import { MdPayment } from "react-icons/md";
-import { BsMicrosoftTeams } from "react-icons/bs";
+import { MdPayment, MdContactSupport } from "react-icons/md";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -49,8 +48,8 @@ const Navbar = () => {
             <span className="text-white hover:text-primary">Dashboard</span>
           </NavLink>
           <NavLink to="/" className="app-nav-li">
-            <FaUserShield />
-            <span className="text-white hover:text-primary">New Admin</span>
+            <MdContactSupport />
+            <span className="text-white hover:text-primary">FAQ's</span>
           </NavLink>
           <NavLink to="/" className="app-nav-li">
             <BsMicrosoftTeams />
@@ -66,45 +65,44 @@ const Navbar = () => {
       >
         <div className="h-[80vh] grid grid-rows-[auto,auto]">
           <div>
-          <ul className="space-y-4 w-full">
-            <li className="app-side-li">
-              <NavLink to="/" className="flex items-center gap-4">
-                <IoMdHome />
-                <span>Dashboard</span>
-              </NavLink>
-            </li>
-            <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <BsBuildingsFill />
-                <span>Companies</span>
-              </NavLink>
-            </li>
-            <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <FaBusAlt />
-                <span>Buses</span>
-              </NavLink>
-            </li>
-            <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <FaUser />
-                <span>Users</span>
-              </NavLink>
-            </li>
-            <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <FaRoute />
-                <span>Routes</span>
-              </NavLink>
-            </li>
-            <li className="app-side-li">
-              <NavLink to="/companies" className="flex items-center gap-4">
-                <MdPayment />
-                <span>Payments</span>
-              </NavLink>
-            </li>
-      
-          </ul>
+            <ul className="space-y-4 w-full">
+              <li className="app-side-li">
+                <NavLink to="/" className="flex items-center gap-4">
+                  <IoMdHome />
+                  <span>Dashboard</span>
+                </NavLink>
+              </li>
+              <li className="app-side-li">
+                <NavLink to="/companies" className="flex items-center gap-4">
+                  <BsBuildingsFill />
+                  <span>Companies</span>
+                </NavLink>
+              </li>
+              <li className="app-side-li">
+                <NavLink to="/companies" className="flex items-center gap-4">
+                  <FaBusAlt />
+                  <span>Buses</span>
+                </NavLink>
+              </li>
+              <li className="app-side-li">
+                <NavLink to="/companies" className="flex items-center gap-4">
+                  <FaUser />
+                  <span>Users</span>
+                </NavLink>
+              </li>
+              <li className="app-side-li">
+                <NavLink to="/companies" className="flex items-center gap-4">
+                  <FaRoute />
+                  <span>Routes</span>
+                </NavLink>
+              </li>
+              <li className="app-side-li">
+                <NavLink to="/companies" className="flex items-center gap-4">
+                  <MdPayment />
+                  <span>Payments</span>
+                </NavLink>
+              </li>
+            </ul>
           </div>
           <div className="px-4 flex flex-col-reverse">
             <NavLink to="/login" className="app-nav-li">
