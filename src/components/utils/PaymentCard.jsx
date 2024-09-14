@@ -2,7 +2,7 @@ import React from "react";
 
 const PaymentCard = () => {
   return (
-    <div className="font-[sans-serif] bg-white p-4">
+    <div className="font-[sans-serif] bg-white mx-4 p-4 rounded-2xl">
       <div className="md:max-w-5xl max-w-xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 max-md:order-1">
@@ -72,21 +72,23 @@ const PaymentCard = () => {
 
           {/* Order Summary */}
           <div className="bg-gray-100 p-6 rounded-md">
-            <h2 className="text-3xl font-extrabold text-gray-800">$250.00</h2>
+            <h2 className="text-3xl font-extrabold text-gray-800">Rs. 2500</h2>
 
             <ul className="text-gray-800 mt-8 space-y-4">
               <li className="flex flex-wrap gap-4 text-sm">
-                Split Sneakers{" "}
-                <span className="ml-auto font-bold">$150.00</span>
+                But Ticket
+                <span className="ml-auto font-bold">Rs. 1500</span>
               </li>
               <li className="flex flex-wrap gap-4 text-sm">
-                Echo Elegance <span className="ml-auto font-bold">$90.00</span>
+                Government Tax{" "}
+                <span className="ml-auto font-bold">Rs. 900</span>
               </li>
               <li className="flex flex-wrap gap-4 text-sm">
-                Tax <span className="ml-auto font-bold">$10.00</span>
+                Service Charges{" "}
+                <span className="ml-auto font-bold">Rs. 100</span>
               </li>
               <li className="flex flex-wrap gap-4 text-sm font-bold border-t-2 pt-4">
-                Total <span className="ml-auto">$250.00</span>
+                Total <span className="ml-auto">Rs. 2500</span>
               </li>
             </ul>
           </div>
