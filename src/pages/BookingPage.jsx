@@ -20,7 +20,7 @@ const BookingPage = () => {
         <h1 className="text-xl mb-2 font-bold">Track Your Bus</h1>
         <img
           className="rounded-2xl border-ternary"
-          src="https://th.bing.com/th/id/OIP.eCUAbMMGWhCsGJV0uGsCxQHaE8?rs=1&pid=ImgDetMain"
+          src="https://th.bing.com/th/id/OIP.eCUAbMMGWhCsGJV0uGsCxQHaE8?rs=1&pid=ImgDetMain" alt="none"
         />
       </div>
     </div>
