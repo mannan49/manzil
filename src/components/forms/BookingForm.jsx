@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import { useFormContext } from "../../context/FormContext";
 
 const BookingForm = () => {
   const navigate = useNavigate()
   const [buses, setBuses] = useState([]); // Store all fetched buses
-  const [formData, setFormData] = useState({
-    fromCity: "",
-    toCity: "",
-    date: "",
-  }); // Store form input (fromCity, toCity, date)
+  const {formData, setFormData} = useFormContext()// Store form input (fromCity, toCity, date)
   const [filteredBuses, setFilteredBuses] = useState([]); // Store filtered buses
   const [cities, setCities] = useState([]); // Store unique cities for dropdowns
 

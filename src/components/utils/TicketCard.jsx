@@ -19,7 +19,7 @@ const TicketCard = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center my-1">
                     <span className="mr-3 rounded-full bg-main w-8 h-8">
-                      <img
+                      <img 
                         src="https://e7.pngegg.com/pngimages/566/606/png-clipart-bus-bus-thumbnail.png"
                         className="h-8 p-1"
                         alt="AirIndia Logo"

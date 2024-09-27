@@ -7,22 +7,26 @@ import CompaniesPage from "./pages/CompaniesPage";
 import BookingPage from "./pages/BookingPage";
 import ProfilePage from "./pages/ProfilePage";
 import PaymentPage from "./pages/PaymentPage";
-
+import { FormProvider } from "./context/FormContext";
 function App() {
   return (
+    <>
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<DashboardContent />}></Route>
-          <Route path="/companies" element={<CompaniesPage />}></Route>
-          <Route path="/bookings" element={<BookingPage />}></Route>
-          <Route path="/profile" element={<ProfilePage />}></Route>
-          <Route path="/payments" element={<PaymentPage />}></Route>
-        </Route>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <FormProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<DashboardContent />} />
+            <Route path="/companies" element={<CompaniesPage />} />
+            <Route path="/bookings" element={<BookingPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/payments" element={<PaymentPage />} />
+          </Route>
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </FormProvider>
     </div>
+  </>
   );
 }
 
