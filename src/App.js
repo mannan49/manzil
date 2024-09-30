@@ -8,13 +8,20 @@ import BookingPage from "./pages/BookingPage";
 import ProfilePage from "./pages/ProfilePage";
 import PaymentPage from "./pages/PaymentPage";
 import { FormProvider } from "./context/FormContext";
+import ProtectedRoute from "./components/utils/ProtectedRoute";
 function App() {
   return (
-    <>
     <div className="App">
       <FormProvider>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute allowedRoles={["user"]}>
+                <Layout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<DashboardContent />} />
             <Route path="/companies" element={<CompaniesPage />} />
             <Route path="/bookings" element={<BookingPage />} />
@@ -26,7 +33,6 @@ function App() {
         </Routes>
       </FormProvider>
     </div>
-  </>
   );
 }
 

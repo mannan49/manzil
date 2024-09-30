@@ -1,15 +1,21 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { VscTarget } from "react-icons/vsc";
 import { BiLogOutCircle } from "react-icons/bi";
 import { IoMdHome } from "react-icons/io";
 import { BsBuildingsFill } from "react-icons/bs";
 import { FaBusAlt } from "react-icons/fa";
 import { FaRoute, FaTicket } from "react-icons/fa6";
-import { MdPayment } from "react-icons/md";
 import { LiaUserEditSolid } from "react-icons/lia";
+import toast from "react-hot-toast";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+    toast.success("User Logged out Successfully");
+  };
   return (
     <div className="w-1/6 sidebar-height bg-headline sticky top-0 px-2 py-4 shadow-md">
       <Link to="/">
@@ -63,7 +69,8 @@ const Sidebar = () => {
         </div>
         <div className="px-4 flex flex-col-reverse ">
           <NavLink
-            to="/companies"
+            to="/login"
+            onClick={handleLogout}
             className="flex items-center gap-4 app-side-li"
           >
             <BiLogOutCircle />

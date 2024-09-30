@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useFormContext } from "../../context/FormContext";
+import { apiBaseUrl } from "../api/settings";
 
 const BookingForm = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [buses, setBuses] = useState([]); // Store all fetched buses
-  const {formData, setFormData} = useFormContext()// Store form input (fromCity, toCity, date)
+  const { formData, setFormData } = useFormContext(); // Store form input (fromCity, toCity, date)
   const [filteredBuses, setFilteredBuses] = useState([]); // Store filtered buses
   const [cities, setCities] = useState([]); // Store unique cities for dropdowns
 
@@ -13,7 +14,7 @@ const BookingForm = () => {
   useEffect(() => {
     const fetchBuses = async () => {
       try {
-        const response = await fetch("http://localhost:8080/bus");
+        const response = await fetch(`${apiBaseUrl}/bus`);
         const data = await response.json();
         setBuses(data);
 
@@ -129,16 +130,18 @@ const BookingForm = () => {
               <p className="text-gray-600 mb-2">
                 Time: {bus.departureTime + " to " + bus.arrivalTime}
               </p>
-              <p className="text-gray-600 mb-2">Total Seats: {bus.busCapacity}</p>
+              <p className="text-gray-600 mb-2">
+                Total Seats: {bus.busCapacity}
+              </p>
               <p className="text-gray-600 mb-2">Details: {bus.busDetails}</p>
               <p className="text-gray-600 mb-2">Fare: {bus.fare}</p>
               {/* Proceed to Payment Button */}
-          <button
-            onClick={() => navigate('/payments', { state: { bus } })}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-4 w-full"
-          >
-            Proceed to Payment
-          </button>
+              <button
+                onClick={() => navigate("/payments", { state: { bus } })}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-4 w-full"
+              >
+                Proceed to Payment
+              </button>
             </div>
           ))}
         </div>
