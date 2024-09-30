@@ -1,5 +1,5 @@
 export const multipleApiBaseUrls = [
-  "https://apex-scholarships-backend.vercel.app/api/v1",
+  "https://tap-and-travel-backend.vercel.app/api/v1",
   "http://localhost:8080/api/v1",
 ];
 
