@@ -45,12 +45,10 @@ export const signUpUser = async (userData) => {
       body: JSON.stringify(userData),
     });
 
-    const data = await response.json(); // Parse the JSON response
-    console.log("Parsed JSON data:", data);
+    const data = await response.json();
 
-    if (response.ok && data.token) {
-      localStorage.setItem("token", data.token); // Store the token if signup is successful
-      return { success: true, data }; // Return success and the data object
+    if (response.ok) {
+      return { success: true, data };
     } else {
       console.error("Signup failed:", data.message);
       return { success: false, message: data.message };
