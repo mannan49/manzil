@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const PaymentCard = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  console.log("Location State:", location.state);
+
   // Load bus data from location.state or localStorage
-  const initialBusData = location.state?.bus || JSON.parse(localStorage.getItem('busData'));
-  
+  const initialBusData =
+    location.state?.bus || JSON.parse(localStorage.getItem("busData"));
+
+  console.log("Initial Bus Data:", initialBusData);
+
   const [busData, setBusData] = useState(initialBusData);
 
   // Save busData to localStorage when it's available
   useEffect(() => {
-    if (busData) {
-      localStorage.setItem('busData', JSON.stringify(busData));
+    if (busData && Object.keys(busData).length > 0) {
+      console.log("Updated Bus Data:", busData);
+      localStorage.setItem("busData", JSON.stringify(busData));
     }
   }, [busData]);
 
   const handleCancel = () => {
     // Clear the busData and localStorage
     setBusData(null);
-    localStorage.removeItem('busData');
+    localStorage.removeItem("busData");
 
     // Navigate to the dashboard or another page after cancel
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -106,16 +112,23 @@ const PaymentCard = () => {
           <div className="bg-gray-100 p-6 rounded-md">
             {busData ? (
               <>
-                <h2 className="text-3xl font-extrabold text-gray-800">Rs. {busData.fare}</h2>
+                <h2 className="text-3xl font-extrabold text-gray-800">
+                  Rs. {busData.fare.actualPrice}
+                </h2>
 
                 <ul className="text-gray-800 mt-8 space-y-4">
                   <li className="flex flex-wrap gap-4 text-sm">
-                    Bus Ticket ({busData.startLocation} to {busData.endLocation})
-                    <span className="ml-auto font-bold">Rs. {busData.fare}</span>
+                    Bus Ticket ({busData.route.startCity} to{" "}
+                    {busData.route.endCity})
+                    <span className="ml-auto font-bold">
+                      Rs. {busData.fare.actualPrice}
+                    </span>
                   </li>
                   <li className="flex flex-wrap gap-4 text-sm font-bold border-t-2 pt-4">
                     Total
-                    <span className="ml-auto">Rs. {busData.fare}</span>
+                    <span className="ml-auto">
+                      Rs. {busData.fare.actualPrice}
+                    </span>
                   </li>
                 </ul>
               </>

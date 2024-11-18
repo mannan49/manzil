@@ -17,6 +17,9 @@ const RouteCard = ({ origin, destination, price, imageSrc }) => {
               <p className="text-tertiary">Only in</p>
               <p className="font-bold">Rs. {price}</p>
             </div>
+            <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-4 w-full">
+              Book my Ticket
+            </button>
           </div>
         </div>
       </div>
